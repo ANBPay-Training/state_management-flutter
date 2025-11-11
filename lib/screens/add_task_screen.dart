@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:todoey_flutter/models/task_data.dart';
 
 class AddTaskScreen extends StatelessWidget {
   // Provider.of<TaskData>(context) uden listen: false kan forårsage uendelige
@@ -9,10 +10,10 @@ class AddTaskScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    //  newTaskTitle er nullable (String?),
-    // fordi brugeren måske ikke indtaster noget.
+    // Holder den nye-task-titel,'?'nullable da bruger måske ikke indtaster noget
     String? newTaskTitle;
-
+    // Ydre container: grå baggrund
+    // Indre container: hvid panel med rundede hjørner og padding
     return Container(
       color: const Color(0xff757575),
       child: Container(
@@ -30,9 +31,10 @@ class AddTaskScreen extends StatelessWidget {
             Text(
               'Add Task',
               textAlign: TextAlign.center,
-              style: TextStyle(fontSize: 30.0, color: Colors.lightBlueAccent),
+              style: TextStyle(fontSize: 30.0, color: Color(0xFFC7ABDA)),
             ),
             TextField(
+              // åbner keybord
               autofocus: true,
               textAlign: TextAlign.center,
               onChanged: (newText) {
@@ -40,16 +42,26 @@ class AddTaskScreen extends StatelessWidget {
               },
             ),
             const SizedBox(height: 10),
+            // TextButton: knap til at tilføje task
             TextButton(
               style: TextButton.styleFrom(
-                backgroundColor: Colors.lightBlueAccent,
+                backgroundColor: Color(0xFFC7ABDA),
                 padding: const EdgeInsets.symmetric(vertical: 12.0),
               ),
               child: const Text(
                 'Add',
                 style: TextStyle(color: Colors.white, fontSize: 18.0),
               ),
-              onPressed: () {},
+              onPressed: () {
+                // .trim() fjerner mellemrum i starten og slutningen af teksten
+                if (newTaskTitle != null && newTaskTitle!.trim().isNotEmpty) {
+                  Provider.of<TaskData>(
+                    context,
+                    listen: false,
+                  ).addTask(newTaskTitle!.trim());
+                  Navigator.pop(context);
+                }
+              },
             ),
           ],
         ),
