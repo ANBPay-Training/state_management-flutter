@@ -8,10 +8,10 @@ class TasksList extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     // Consumer<TaskData>: Provider-widget, der lytter til ændringer i TaskData
+    // Kun den del af widget-træet bliver genopbygget, ikke hele skærmen
     return Consumer<TaskData>(
-      // taskData: instans af TaskData fra Provider
-      // Opdateres automatisk, når notifyListeners() kaldes
-      // child: et widget, der kan bruges uden at blive genopbygget
+      // TaskData: instans af TaskData-classen som kalder Provideren
+      // Builder kan modtage et child, som ikke genopbygges ved ændringer
       builder: (context, taskData, child) {
         // listView  her indeholder en itemBuilder og en itemCount og loopes
         return ListView.builder(

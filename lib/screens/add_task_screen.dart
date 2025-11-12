@@ -10,7 +10,7 @@ class AddTaskScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // Holder den nye-task-titel,'?'nullable da bruger måske ikke indtaster noget
+    // '?': Gøre nullable da bruger måske ikke indtaster noget
     String? newTaskTitle;
     // Ydre container: grå baggrund
     // Indre container: hvid panel med rundede hjørner og padding

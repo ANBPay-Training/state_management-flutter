@@ -73,8 +73,8 @@ class TasksScreen extends StatelessWidget {
                   ),
                 ),
                 Text(
-                  // taskCount fra TaskData via Provider,
-                  // opdateres automatisk når data ændres
+                  // taskCount: antal af de opgaver fra TaskData via Provider,
+                  // Provider hjælper med automatiskopdatering når data ændres
                   '${Provider.of<TaskData>(context).taskCount} Tasks',
                   style: TextStyle(color: Colors.white, fontSize: 18),
                 ),

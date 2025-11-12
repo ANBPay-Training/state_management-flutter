@@ -11,9 +11,12 @@ class Todoey extends StatelessWidget {
   const Todoey({super.key});
   @override
   Widget build(BuildContext context) {
+    // ChangeNotifierProvider giver adgang til TaskData i hele appen
     return ChangeNotifierProvider(
-      create: (context) => TaskData(), // her bliver provider skabet
+      // her oprettes TaskData-provider'en
+      create: (context) => TaskData(),
       child: MaterialApp(
+        // Fjerner den røde "Debug"-banner fra skærmen
         debugShowCheckedModeBanner: false,
         home: TasksScreen(),
       ),
