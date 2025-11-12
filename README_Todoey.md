@@ -1,17 +1,17 @@
 # todoey_flutter
 
 main.dart (Todoey)
-└─ ChangeNotifierProvider -> TaskData
-│
-└─ TasksScreen (home)
-├─ Header (Icon + Text + taskCount via Provider.of<TaskData>)
-└─ Expanded -> Container (BoxDecoration)
-└─ TasksList (Consumer<TaskData>)
-└─ ListView.builder (loop)
-└─ TaskTile (per task)
-├─ title: Text (taskTitle, evt. line-through hvis isChecked)
-├─ trailing: Checkbox (isChecked, onChanged -> checkboxCallback)
-└─ onLongPress: longPressCallback (sletter opgaven)
+    └─ ChangeNotifierProvider -> TaskData
+        │
+        └─ TasksScreen (home)
+            ├─ Header (Icon + Text + taskCount via Provider.of<TaskData>)
+            └─ Expanded -> Container (BoxDecoration)
+                └─ TasksList (Consumer<TaskData>)
+                    └─ ListView.builder (loop)
+                        └─ TaskTile (per task)
+                            ├─ title: Text (taskTitle, evt. line-through hvis isChecked)
+                            ├─ trailing: Checkbox (isChecked, onChanged -> checkboxCallback)
+                            └─ onLongPress: longPressCallback (sletter opgaven)
 
 
 AddTaskScreen (opened by FAB -> showModalBottomSheet)
@@ -97,3 +97,4 @@ Appen viser, hvordan man bygger en reaktiv To-Do-liste i Flutter med en enkel, e
 
 
 ![Finished App](todoey_screens_demo.gif)
+
