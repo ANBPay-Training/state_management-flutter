@@ -92,3 +92,7 @@ Indgangspunktet for appen.
 
 📘 **Kort sagt:**
 Appen viser, hvordan man bygger en reaktiv To-Do-liste i Flutter med en enkel, effektiv struktur.
+
+
+
+![Finished App](todoey_screens_demo.gif)
